@@ -43,7 +43,7 @@ async def process_command_2(message: types.Message):
 async def process_callback_button1(callback_query: types.CallbackQuery):
     USER_STATES[callback_query.from_user.id]=BOT_STATES.TEST_STATE_1
     await bot.answer_callback_query(callback_query.id)
-    await bot.send_message(callback_query.from_user.id, 'Введите номер обращения')
+    await bot.send_message(callback_query.from_user.id, 'Введите номер обращения (например: 000032387')
 
 
 
@@ -56,7 +56,8 @@ async def process_callback_button2(callback_query: types.CallbackQuery):
 
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
-    await message.reply("Здравствуйте! 🖖", reply_markup=kb.greet_kb)
+    await message.reply("Здравствуйте! Вас приветствует чат-бот компании Фобизнес 🖖. "
+                        "Для перехода в меню наберите /menu или нажмите кнопку на дополнительной клавиатуре.", reply_markup=kb.greet_kb)
 
 # @dp.message_handler()
 # async def echo_message(msg: types.Message):
